@@ -1,7 +1,7 @@
 import dinnerImage from '../../assets/dinner-1.png';
 import logo from '../../assets/LOGO.png';
 import {useState} from "react";
-import {useNavigate} from "react-router";
+import {Link, useNavigate} from "react-router";
 import {useLocalStorage} from "react-use";
 import {userLogin} from "../../lib/api/UserApi.jsx";
 import {alertError} from "../../lib/alert.js";
@@ -19,8 +19,6 @@ export default function UserLogin() {
 
         if (isSubmitting) return; // Prevent double submission
         setIsSubmitting(true); // Disable button
-
-
         const response = await userLogin({
             username: username,
             password: password
@@ -36,7 +34,8 @@ export default function UserLogin() {
                 pathname : '/dashboard/splitnow'
             })
         }else {
-            await alertError(responseBody.errors)
+            await alertError(responseBody.message)
+            setIsSubmitting(false);
         }
 
         setTimeout(() =>{
@@ -135,10 +134,10 @@ export default function UserLogin() {
                     <div className="mt-6 text-center">
                         <p className="text-secondary/80">
                             Belum punya akun?
-                            <a href="#"
+                            <Link to="/register"
                                className="font-medium text-secondary hover:text-secondary/90 transition-colors">
                                 Daftar sekarang
-                            </a>
+                            </Link>
                         </p>
                     </div>
                 </div>

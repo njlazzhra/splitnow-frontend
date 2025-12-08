@@ -1,7 +1,7 @@
 import dinnerImage from '../../assets/dinner-1.png';
 import logo from '../../assets/LOGO.png';
 import {useState} from "react";
-import {useNavigate} from "react-router";
+import {Link, useNavigate} from "react-router";
 import {alertError, alertSuccess} from "../../lib/alert.js";
 import {userRegister} from "../../lib/api/UserApi.jsx";
 
@@ -37,6 +37,7 @@ export default function UserRegister() {
             })
         }else {
             await alertError(responseBody.message)
+            setIsSubmitting(false);
         }
     }
 
@@ -54,19 +55,19 @@ export default function UserRegister() {
             <div className="w-full max-w-md">
 
 
-                <div className="text-center mb-8">
-                    <img src={logo} alt="Logo" className="mx-auto h-20 w-auto"/>
+                <div className="text-center mb-3">
+                    <img src={logo} alt="Logo" className="mx-auto h-14 w-auto"/>
                 </div>
 
 
-                <div className="text-center mb-8">
+                <div className="text-center mb-2">
                     <h2 className="text-3xl font-bold text-secondary mb-2">Buat Akun Baru</h2>
                     <p className="text-secondary/80">Isi data berikut untuk membuat akun Anda.</p>
                 </div>
 
 
-                <div className="glass-effect rounded-2xl p-8 shadow-xl ">
-                    <form className="space-y-6" onSubmit={handleSubmit}>
+                <div className="glass-effect rounded-2xl p-4 shadow-xl ">
+                    <form className="space-y-2" onSubmit={handleSubmit}>
 
 
                         <div>
@@ -127,11 +128,12 @@ export default function UserRegister() {
                         </div>
 
 
-                        <div className="grid grid-cols-1 gap-3">
-                            <button type="button"
+                        <div className="grid grid-cols-1">
+                            <button type="button" onClick={() => window.location.href = `${import.meta.env.VITE_API_GOOGLE}/auth/google`}
                                     className="w-full flex justify-center items-center py-2 px-4 border border-accent rounded-lg bg-white/70 text-secondary hover:bg-white hover:shadow-md transition-all duration-300">
                                 Google
                             </button>
+
                         </div>
 
                     </form>
@@ -140,12 +142,14 @@ export default function UserRegister() {
                     <div className="mt-6 text-center">
                         <p className="text-secondary/80">
                             Sudah punya akun?
-                            <a href="#"
+                            <Link to="/login"
                                className="font-medium text-secondary hover:text-secondary/90 transition-colors">
                                 Masuk sekarang
-                            </a>
+                            </Link>
                         </p>
                     </div>
+
+
                 </div>
 
             </div>

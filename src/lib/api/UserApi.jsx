@@ -29,8 +29,8 @@ export const userLogin = async ({username, password}) => {
 }
 
 export const userUpdateProfile = async (token, name) => {
-    return await fetch('/api/user/profile', {
-        method: 'PUT',
+    return await fetch(`${import.meta.env.VITE_API_PATH}/users/current`, {
+        method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
@@ -43,8 +43,8 @@ export const userUpdateProfile = async (token, name) => {
 }
 
 export const userUpdatePassword = async (token, password) => (
-    await fetch('/api/user/password', {
-        method: 'PUT',
+    await fetch(`${import.meta.env.VITE_API_PATH}/users/current`, {
+        method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
@@ -59,7 +59,7 @@ export const userUpdatePassword = async (token, password) => (
 
 
 export const userDetailProfile = async (token) => {
-    return await fetch('/api/user/profile', {
+    return await fetch(`${import.meta.env.VITE_API_PATH}/users/current`, {
         method: 'GET',
         headers: {
             'Accept': 'application/json',

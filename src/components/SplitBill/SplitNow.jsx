@@ -1,5 +1,6 @@
 import {Link} from "react-router";
 import logo from '../../assets/LOGO.png';
+import bgMoney from "../../assets/bg-money.png";
 
 export default function SplitNow () {
 
@@ -18,16 +19,15 @@ export default function SplitNow () {
                     Home
                 </Link>
 
-                <Link to="#"
-                   className="px-4 py-2 rounded-lg text-[#FFEBD3] font-medium text-[24px] transition-all duration-300 hover:bg-[#FFEBD3] hover:text-[#226B80]">
+                <Link to="/dashboard/splitnow/create"
+                   className="px-4 py-2 rounded-lg text-[#FFEBD3] btn-animate  font-medium text-[24px] transition-all duration-300 hover:bg-[#FFEBD3] hover:text-[#226B80]">
                     New Split
                 </Link>
 
                 <Link to="/dashboard/user/profile"
-                   className="px-4 py-2 rounded-lg btn-animate hover:underline font-medium text-[24px] transition-all duration-300 ">
+                   className="px-4 py-2 rounded-lg btn-animate  font-medium text-[24px] transition-all duration-300 hover:bg-[#FFEBD3] hover:text-[#226B80] ">
                     Profile
                 </Link>
-
             </div>
 
         </div>
@@ -45,16 +45,18 @@ export default function SplitNow () {
             </h1>
 
 
-            <button
+            <Link to="/dashboard/splitnow/create"
                 className="bg-[#226B80] text-[#FFEBD3] font-bold text-[30px] font-poppins
          px-20 py-3 rounded-3xl mt-8
           btn-animate"
             >
                 Split now
-            </button>
+            </Link >
         </div>
         <div
-            className="flex-1 relative flex items-end justify-center  bg-[url('../src/assets/bg-money.png')] bg-contain bg-no-repeat 2xl:bg-repeat bg-bottom ">
+            className="flex-1 relative flex items-end justify-center bg-contain bg-no-repeat 2xl:bg-repeat bg-bottom"
+            style={{ backgroundImage: `url(${bgMoney})` }}
+        >
         </div>
 
     </main>
