@@ -69,7 +69,7 @@ export const userDetailProfile = async (token) => {
 }
 
 export const userLogout = async (token) => {
-    return await fetch("/endpoint" , {
+    return await fetch(`${import.meta.env.VITE_API_PATH}/users/logout`, {
         method: 'DELETE',
         headers:{
             'Accept': 'application/json',
