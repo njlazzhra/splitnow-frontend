@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import {BrowserRouter, Route, Routes} from "react-router";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import RedirectLogin from "./components/RedirectLogin.jsx";
 import UserRegister from "./components/User/UserRegister.jsx";
 import UserLogin from "./components/User/UserLogin.jsx";
