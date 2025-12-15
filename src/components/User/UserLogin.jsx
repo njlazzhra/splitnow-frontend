@@ -82,11 +82,11 @@ export default function UserLogin() {
                                         Alamat Email/Username
                                     </label>
                                     <input
-                                        type="email"
-                                        id="email"
+                                        type="text"
+                                        id="username"
                                         required
                                         onChange={(e) => setUsername(e.target.value)}
-                                        placeholder="masukkan@email.anda"
+                                        placeholder="Masukkan username"
                                         className="input-focus block w-full pl-3 pr-3 py-3 border border-accent rounded-lg bg-white/50 text-secondary placeholder-accent/60"
                                     />
                                 </div>
