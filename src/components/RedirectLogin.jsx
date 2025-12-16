@@ -1,17 +1,17 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router";
+import {useEffectOnce} from "react-use";
 
 export default function RedirectLogin() {
-  const navigate = useNavigate();
-  const token = localStorage.getItem("token");
 
-  useEffect(() => {
-    if (token) {
-      navigate("/dashboard/splitnow");
-    } else {
-      navigate("/login");
-    }
-  }, [navigate, token]);
+    const navigate = useNavigate()
 
-  return null;
+    useEffectOnce(() => {
+        navigate({
+            pathname : '/login'
+        })
+    })
+
+    return <>
+
+    </>
 }

@@ -1,20 +1,21 @@
-export const userRegister = async ({ username, password, name }) => {
-    return await fetch(`${import.meta.env.VITE_API_PATH}/api/users`, {
+export const userRegister = async ({username, password, name}) => {
+    return await fetch(`${import.meta.env.VITE_API_PATH}/users`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Accept': 'application/json',
+            'Accept': 'application/json'
+
         },
         body: JSON.stringify({
             username,
             password,
-            name,
-        }),
+            name
+        })
     });
 };
 
-export const userLogin = async ({ username, password }) => {
-    return await fetch(`${import.meta.env.VITE_API_PATH}/api/users/login`, {
+export const userLogin = async ({username, password}) => {
+    return await fetch(`${import.meta.env.VITE_API_PATH}/users/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -22,55 +23,60 @@ export const userLogin = async ({ username, password }) => {
         },
         body: JSON.stringify({
             username,
-            password,
-        }),
-    });
-};
+            password
+        })
+    })
+}
 
 export const userUpdateProfile = async (token, name) => {
-    return await fetch(`${import.meta.env.VITE_API_PATH}/api/users/current`, {
+    return await fetch(`${import.meta.env.VITE_API_PATH}/users/current`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
-            'Authorization': token,
+            'Authorization': token
         },
         body: JSON.stringify({
-            name,
-        }),
-    });
-};
+            name
+        })
+    })
+}
 
-export const userUpdatePassword = async (token, password) => {
-    return await fetch(`${import.meta.env.VITE_API_PATH}/api/users/current`, {
+export const userUpdatePassword = async (token, password) => (
+    await fetch(`${import.meta.env.VITE_API_PATH}/users/current`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
-            'Authorization': token,
+            'Authorization': token
         },
         body: JSON.stringify({
-            password,
-        }),
-    });
-};
+            password
+        })
+    })
+)
+
+
 
 export const userDetailProfile = async (token) => {
-    return await fetch(`${import.meta.env.VITE_API_PATH}/api/users/current`, {
+    return await fetch(`${import.meta.env.VITE_API_PATH}/users/current`, {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
-            'Authorization': token,
-        },
-    });
-};
+            'Authorization': token
+        }
+    })
+}
 
 export const userLogout = async (token) => {
-    return await fetch(`${import.meta.env.VITE_API_PATH}/api/users/current`, {
+    return await fetch("/endpoint" , {
         method: 'DELETE',
-        headers: {
+        headers:{
             'Accept': 'application/json',
-            'Authorization': token,
-        },
-    });
-};
+            'Authorization': token
+        }
+    })
+}
+
+
+
